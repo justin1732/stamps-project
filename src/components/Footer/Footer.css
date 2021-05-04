@@ -5,8 +5,8 @@ a,a:hover {
 
 table{
     height:100px;
-    background-color: red;
-    border-top: 5px solid blue;
+    background-color: darkslategrey;
+    border-top: 5px solid black;
     width: 100%;
     color: black;
 }
