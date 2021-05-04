@@ -3,6 +3,7 @@ import "./Header.css";
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Button from 'react-bootstrap/Button';
+// import logo from "./images/stamp.svg";
 
 const popover = (
     <Popover id="popover-positioned-left">
@@ -17,11 +18,13 @@ const Header = props => (
         <div className="col-lg-6 text-center">
         <OverlayTrigger trigger="click" placement="left" overlay={popover}>
                 <Button className="logo-button btn-dark">
-                <img src="./images/shipengine.jpg" className="star-ocean" alt="Star Ocean Logo" width="50" height="150"/>
+                <img src="./images/shipengine.jpg" className="App-logo" alt="logo" width="auto" height="auto" length="auto" />
                 </Button>
                 </OverlayTrigger>
-                <h1><strong>Instructions!</strong><br />
-        Click on a character to earn points, but don't select a character more than once!</h1>
+                <br />
+                <br />
+                <h1><strong>Welcome!</strong><br />
+        Work on validating an address here below! Enter an address, and the app will tell if you it is valid or not!</h1>
         </div>
         <div className="col-lg-3"></div>
     </header>
