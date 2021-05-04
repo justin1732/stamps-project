@@ -1,7 +1,9 @@
 import './App.css';
 import Header from '../src/components/Header/Header.js'
-// import Main from '../src/components/Main/Main.js';
+import Main from '../src/components/Main/Main.js';
 import Footer from '../src/components/Footer/Footer.js';
+// import { Form, Field } from '@leveluptuts/fresh';
+
 
 function App() {
   return (
@@ -20,8 +22,10 @@ function App() {
         >
           Let's check an address below!
         </a>
+        
       </header>
-      <Footer />
+ <Main />
+<Footer />
       </div>
   );
 }

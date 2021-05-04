@@ -18,7 +18,7 @@ const Header = props => (
         <div className="col-lg-6 text-center">
         <OverlayTrigger trigger="click" placement="left" overlay={popover}>
                 <Button className="logo-button btn-dark">
-                <img src="./images/shipengine.jpg" className="App-logo" alt="logo" width="auto" height="auto" length="auto" />
+                <img src="./images/shipengine5.png" className="App-logo" alt="logo" width="auto" height="auto" length="auto" />
                 </Button>
                 </OverlayTrigger>
                 <br />

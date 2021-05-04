@@ -13,7 +13,7 @@ const Footer = props => (
                 <i className="fab fa-react fa-2x"></i>
                 </a>
                 <div classNmae="spacer"></div>
-                Justin Tucker, 2020
+                <h4>Justin Tucker, 2021</h4>
             </td>
         </tr>
     </tbody>
