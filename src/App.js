@@ -1,10 +1,13 @@
 import logo from './stamp.svg';
 import './App.css';
-
+import Header from '../src/components/Header/Header.js'
+// import Main from '../src/components/Main/Main.js';
+import Footer from '../src/components/Footer/Footer.js';
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +22,7 @@ function App() {
           Let's check an address below!
         </a>
       </header>
+      <Footer />
       </div>
   );
 }
