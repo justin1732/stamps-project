@@ -9,22 +9,16 @@ import Stamps from '../src/components/Stamps/Stamps';
 function App() {
   return (
     <div className="App">
-     
-      <Header />
+    <Header />
        <header className="App-header">
-       <p>
+
+      
+       {/* <p>
           Welcome to my app for checking addresses!
         </p>
-        <a
-          className="App-link"
-          href="www.justinptucker.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Let's check an address below!
-        </a>
-        <Stamps />
-      </header>
+        Let's check an address below! */}
+       <Stamps />
+       </header>
  <Main />
 <Footer />
       </div>
