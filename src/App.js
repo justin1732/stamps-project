@@ -2,6 +2,7 @@ import './App.css';
 import Header from '../src/components/Header/Header.js'
 import Main from '../src/components/Main/Main.js';
 import Footer from '../src/components/Footer/Footer.js';
+import Stamps from '../src/components/Stamps/Stamps';
 // import { Form, Field } from '@leveluptuts/fresh';
 
 
@@ -22,7 +23,7 @@ function App() {
         >
           Let's check an address below!
         </a>
-        
+        <Stamps />
       </header>
  <Main />
 <Footer />
