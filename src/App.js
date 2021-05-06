@@ -7,6 +7,28 @@ import Stamps from '../src/components/Stamps/Stamps';
 
 
 function App() {
+    // constructor(props) {
+    //   super(props);
+    //   this.state = {
+    //     address: [],
+    //     isLoaded: false,
+    //   }
+    // }
+    // componentDidMount() {
+    //   fetch{''}
+
+    // }
+
+    // render (){
+    //   var { isverified } = this.state;
+
+    //   if (isverified){
+    //     return <img src = "../images/approved.jpg">Approved!</img>
+    //   }
+    //   else {
+    //     return <img src = "../images/declined.jpg">Not Verified</img>
+    //   }
+    // }
   return (
     <div className="App">
     <Header />
