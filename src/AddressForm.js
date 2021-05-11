@@ -33,23 +33,14 @@ class AddressForm extends Component {
         {   'headers':{
             'Host': 'api.shipengine.com',
             'API-Key': 'EST_J6h+wzVuOOQlnxi4H6VwhZoBWolFjnM61n6J3K1bTcY',
+            'Content-Type': 'application/json',
         }}, {
             'params':{
             'query': query,
             'maxresults':1,
         }}).then(function(response) {
-            if (response.data.suggestions > 0){
-            const id = response.data.suggestion[0].locationId;
-            const address = response.data.suggestions[0].address;
-            self.setState({
-                'address': address,
-                'query': query,
-                'locationId' : id
-            })
-        } else {
             const state = self.getInitialState();
             self.setState(state);
-        }
         });
     }
     getInitialState(){
