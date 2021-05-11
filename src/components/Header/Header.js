@@ -24,7 +24,7 @@ const Header = props => (
                 <br />
                 <br />
                 <h1><strong>Welcome!</strong><br />
-        Work on validating an address here below! Enter an address, and the app will tell if you it is valid or not!</h1>
+        Work on validating a US-based address here! Enter an address, and the app will tell if you it is valid or not!</h1>
         </div>
         <div className="col-lg-3"></div>
     </header>

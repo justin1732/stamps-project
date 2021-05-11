@@ -12,7 +12,7 @@ const Footer = props => (
                 <a href="https://github.com/justin1732/HM15ClickyGame" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-react fa-2x"></i>
                 </a>
-                <div classNmae="spacer"></div>
+                <div className="spacer"></div>
                 <h4>Justin Tucker, 2021</h4>
             </td>
         </tr>

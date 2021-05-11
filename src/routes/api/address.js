@@ -1,5 +1,5 @@
 var express = require("express");
-const address = require('../../controllers/AddressController');
+const address = require('../../AddressController');
 var router = express.Router();
 
 router.route("/").get(address.findAssets);
