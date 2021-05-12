@@ -1,17 +1,24 @@
 //Dependencies
-// const express = require("express");
-// const path = require("path");
-// const PORT = process.env.PORT || 3001;
-// const app = express();
+const express = require("express");
+const path = require("path");
+const PORT = process.env.PORT || 3001;
+const app = express();
 // // const mongoose = require("mongoose");
-// // Define middleware here
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-// app.use(express.static("public"));
-// // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
+const config = require("./config");
+const fetch = require("node-fetch");
+const router = express.Router();
+require("dotenv").config();
+
+// Define middleware here
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
+
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 //Connect to MongoDB
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/book";
 // mongoose
@@ -22,34 +29,36 @@
 //     .then(() => console.log("Database Connected!"))
 //     .catch(err => console.log(err));
 // Define API routes here
-//search route
+
+// Verification
 // app.get("/search/:search", (req, res) => {
 //   let search = req.params.search;
 //   const headers = const headers = {
 //     'api-key': '<your-api-key>',
 //     'Content-Type': 'application/json',
 //   };
-//   axios.get("https://www.googleapis.com/books/v1/volumes?q=" + search).then(function(response) {
-//       let address = response.data.items
-//       // console.log(books)
-//       let array =[];
-//       for(let i=0; i<address.length; i++) {
-//         if(address[i].volumeInfo.imageLinks !== undefined && address[i].volumeInfo.authors !== undefined){
-//         let bookInfo = {
-//               title: books[i].volumeInfo.title,
-//               authors: books[i].volumeInfo.authors,
-//               description: books[i].volumeInfo.description,
-//               image: books[i].volumeInfo.imageLinks.smallThumbnail,
-//               link: books[i].volumeInfo.infoLink
-//           }
-//         array.push(bookInfo);  
-//       }}
-//       db.Book
-//             .create(array)
-//             .then(dbBook => res.json(dbBook))
-//             .catch(err => res.json(err))
-//     })
-// })
+router.post("/verify-addresses", async (req, res) => {
+    try {
+  
+      const options = {
+        "method": "POST",
+        "headers": {
+          "Host": "api.shipengine.com",
+          "API-Key": config.shipengine.apiKey,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(req.body)
+      };
+      const response = await fetch("https://api.shipengine.com/v1/addresses/validate", options);
+      const parsedResponse = await response.json();
+      res.json(parsedResponse);
+    }
+    catch (e) {
+      console.error(e.message);
+      res.send(500, "Unexpected Server Error");
+    }
+  });
+  
 //get all saved books from db
 
 
