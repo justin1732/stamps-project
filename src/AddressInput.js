@@ -15,10 +15,11 @@ class Addressinput extends Component {
         return (
 
             <div className="card"><div className="card-body">
-            <AddressItem label="Street Address (no apartment number)" id="street" value={this.props.street} onChange={this.handleChange} placeholder=""/>
-            <AddressItem label="City" id="city" value={this.props.city} onChange={this.handleChange} placeholder=""/>    
-            <AddressItem label="State (two letters)" id="state" value={this.props.state} onChange={this.handleChange} placeholder=""/>   
-            <AddressItem label="Zip Code" id="zipcode" value={this.props.zipcode} onChange={this.handleChange} placeholder=""/> 
+            <AddressItem label="o Street Address" id="street" value={this.props.street} onChange={this.handleChange} placeholder=""/>
+            <AddressItem label="o Street Address 2" id="street" value={this.props.street} onChange={this.handleChange} placeholder=""/>
+            <AddressItem label="o City" id="city" value={this.props.city} onChange={this.handleChange} placeholder=""/>    
+            <AddressItem label="o State (two letters)" id="state" value={this.props.state} onChange={this.handleChange} placeholder=""/>   
+            <AddressItem label="o Zip Code" id="zipcode" value={this.props.zipcode} onChange={this.handleChange} placeholder=""/> 
             </div></div>
         );
     }

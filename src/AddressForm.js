@@ -32,7 +32,7 @@ class AddressForm extends Component {
         axios.post('https://api.shipengine.com/v1/address/validate',
         {   'headers':{
             'Host': 'api.shipengine.com',
-            'API-Key': 'EST_J6h+wzVuOOQlnxi4H6VwhZoBWolFjnM61n6J3K1bTcY',
+            'API-Key': 'TEST_J6h+wzVuOOQlnxi4H6VwhZoBWolFjnM61n6J3K1bTcY',
             'Content-Type': 'application/json',
         }}, {
             'params':{
