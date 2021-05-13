@@ -8,6 +8,7 @@ import AddressForm from './AddressForm';
 // var express = require('express');
 // var cors = require ('cors');
 // var app = express ();
+// const API_KEY=`${process.env.REACT_APP_SHIPENGINE_API_KEY}`;
 
 // app.options('/products/:id', cors()) // enable pre-flight request for DELETE request
 // app.del('/products/:id', cors(), function (req, res, next) {
@@ -57,6 +58,7 @@ function App() {
 
  <Main />
 <Footer />
+
       </div>
   );
 }
