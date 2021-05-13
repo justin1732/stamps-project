@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import AddressInput from './AddressInput';
 import axios from 'axios';
 
-const APP_ID_HERE= 'APP_ID_HERE';
-const APP_CODE_HERE = 'APP_CODE_HERE';
+const API_KEY= 'TEST_J6h+wzVuOOQlnxi4H6VwhZoBWolFjnM61n6J3K1bTcY';
 
 class AddressForm extends Component {
     constructor(props){
@@ -29,10 +28,10 @@ class AddressForm extends Component {
         }
 
         const self = this;
-        axios.post('https://api.shipengine.com/v1/address/validate',
+        axios.post('https://cors-anywhere.herokuapp.com/https://api.shipengine.com/v1/address/validate',
         {   'headers':{
             'Host': 'api.shipengine.com',
-            'API-Key': 'TEST_J6h+wzVuOOQlnxi4H6VwhZoBWolFjnM61n6J3K1bTcY',
+            'API_KEY': API_KEY,
             'Content-Type': 'application/json',
         }}, {
             'params':{
@@ -75,9 +74,8 @@ class AddressForm extends Component {
 
     onCheck(evt){
         let headers = {
-            'app-id': APP_ID_HERE,
-            'app-code': APP_CODE_HERE,
-        }
+            'API_KEY': API_KEY,
+                }
 
         if (this.state.locationId.length > 0){
             headers['locationId']= this.state.locationId;
@@ -87,7 +85,7 @@ class AddressForm extends Component {
         }
 
         const self = this;
-        axios.get('https://api.shipengine.com/v1/address/validate' ,
+        axios.post('https://api.shipengine.com/v1/address/validate' ,
         {'headers': headers}).then (function(response){
             const view = response.data.Response.View
             if (view.length > 0 && view[0].Result.length > 0){
@@ -133,7 +131,7 @@ class AddressForm extends Component {
             if (this.state.status === "verified"){
                 return(
                     <div className="alert alert-success" role="alert">
-                        <b>Success</b>
+                        <b>Success! Verified address!</b>
                         {/* <img src="error.png" alt="error">Error</img> */}
                     </div>
                 );
@@ -141,7 +139,7 @@ class AddressForm extends Component {
                 else {
                     return (
                         <div className="alert alert-warning" role="alert">
-                            <b>Invalid! Try again</b>
+                            <b>Sorry! Invalid Address! Try again?</b>
                             {/* <img src="correct.png" alt="valid">Success!</img> */}
                         </div>
                     );
