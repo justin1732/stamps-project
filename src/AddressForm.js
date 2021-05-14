@@ -28,7 +28,7 @@ class AddressForm extends Component {
         }
 
         const self = this;
-        axios.post('https://cors-anywhere.herokuapp.com/https://api.shipengine.com/v1/address/validate',
+        axios.post('https://api.shipengine.com/v1/address/validate',
         {   'headers':{
             'Host': 'api.shipengine.com',
             'API_KEY': API_KEY,
@@ -44,6 +44,7 @@ class AddressForm extends Component {
     }
     getInitialState(){
         return{
+            'status' : '',
             'address': {
                 'street': '',
                 'city': '',
@@ -78,10 +79,10 @@ class AddressForm extends Component {
                 }
 
         if (this.state.locationId.length > 0){
-            headers['locationId']= this.state.locationId;
+            headers['original_address']= this.state.original;
         } else {
-            headers['searchtext']= this.state.address.street
-            + this.state.address.city + this.state.address.postalCode + this.state.address.country;
+            headers['searchtext']= this.state.original_address.address_line1
+            + this.state.address.city_locality + this.state.address.state_province + this.state.address.postal_code;
         }
 
         const self = this;
@@ -92,15 +93,13 @@ class AddressForm extends Component {
                 const location = view[0].Result[0].Location;
 
                 self.setState({
-                    'staus': 'true',
-                    'locationId': '',
-                    'query': location.Address.Label,
-                    'address':{
-                        'street': location.Address.HouseNumber + '' + location.Address.Street,
+                    'status': '',
+                       'original_address':{
+                        'street': location.Address.Street,
                         'city': location.Address.City,
                         'state':location.Address.State,
-                        'postalCode': location.Address.PostalCode,
-                        'country': location.Address.country
+                        'zipcode': location.Address.PostalCode,
+                        'country': "US",
                         },
                         'coords': {
                             'lat': location.DisplayPosition.Latitude,
@@ -157,8 +156,7 @@ class AddressForm extends Component {
                    street={this.state.address.street}
                    city={this.state.address.city}
                    state={this.state.address.state}
-                   postalCode={this.state.address.postalCode}
-                   country={this.state.address.country}
+                   zipcode={this.state.address.zipcode}
                    onChange={this.onAddressChange}
                    />
 <br />
