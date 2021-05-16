@@ -162,7 +162,7 @@ class AddressForm extends Component {
 <br />
 { result } 
 <button type="submit" className="btn btn-primary" onClick={this.onCheck}>Check</button>
-<button type="submit" className="btn btn-outline-secondary" onClick={this.onClear}>Clear</button>
+<button type="submit" className="btn btn-outline-secondary" onClick={this.onClear}>Clear Result</button>
                                    </div>
                 );
         }
