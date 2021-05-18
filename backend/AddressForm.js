@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddressInput from './AddressInput';
+import AddressInput from '../src/AddressInput';
 import axios from 'axios';
 
 const API_KEY= 'TEST_J6h+wzVuOOQlnxi4H6VwhZoBWolFjnM61n6J3K1bTcY';
@@ -33,7 +33,6 @@ class AddressForm extends Component {
             'Host': 'api.shipengine.com',
             'API_KEY': API_KEY,
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
         }}, {
             'params':{
             'query': query,
@@ -50,10 +49,13 @@ class AddressForm extends Component {
                 'street': '',
                 'city': '',
                 'state': '',
-                'zipcode': '',
-                
+                'postalCode': '',
+                'country': ''
             },
-            'original_address': '',
+            'query': '',
+            'locationId': '',
+            'isChecked': false,
+            'coords': {}
         }
     }
 
@@ -74,17 +76,13 @@ class AddressForm extends Component {
     onCheck(evt){
         let headers = {
             'API_KEY': API_KEY,
-            'Access-Control-Allow-Origin': '*',
                 }
-        //   let body = {
-        //       'raw': ''
-        //   }      
 
-        if (this.state.original_address.length > 0){
-            headers['original_address']= this.state.original_address;
+        if (this.state.locationId.length > 0){
+            headers['original_address']= this.state.original;
         } else {
-            headers['searchtext']= this.state.address.street
-            + this.state.address.city + this.state.address.zipcode + this.state.address.country;
+            headers['searchtext']= this.state.original_address.address_line1
+            + this.state.address.city_locality + this.state.address.state_province + this.state.address.postal_code;
         }
 
         const self = this;
@@ -96,18 +94,22 @@ class AddressForm extends Component {
 
                 self.setState({
                     'status': '',
-                    'original_address':{
+                       'original_address':{
                         'street': location.Address.Street,
                         'city': location.Address.City,
                         'state':location.Address.State,
-                        'zipcode': location.Address.zipcode,
+                        'zipcode': location.Address.PostalCode,
                         'country': "US",
                         },
-                        
+                        'coords': {
+                            'lat': location.DisplayPosition.Latitude,
+                            'lon': location.DisplayPosition.Longitude
+                        }
                 });
             } else {
                 self.setState({
-                  'status': null,
+                  'isChecked': true,
+                  'coords': null,
                 })
               }
       
@@ -115,7 +117,8 @@ class AddressForm extends Component {
             .catch(function (error) {
               console.log('caught failed query');
               self.setState({
-                'status': null,
+                'isChecked': true,
+                'coords': null,
               });
             });
         }

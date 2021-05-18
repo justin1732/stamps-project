@@ -4,7 +4,7 @@ import Main from '../src/components/Main/Main.js';
 import Footer from '../src/components/Footer/Footer.js';
 // import Stamps from '../src/components/Stamps/Stamps';
 // import { Form, Field } from '@leveluptuts/fresh';
-import AddressForm from './AddressForm';
+import AddressForm from '../src/AddressForm';
 // var express = require('express');
 // var cors = require ('cors');
 // var app = express ();
